@@ -39,9 +39,33 @@ namespace GestionEmpleados
             Console.WriteLine("Nombre: " + Nombre);
         }
     }
+
+    public class EmpleadoTiempoCompleto : Empleado
+    {
+        private double salarioFijo;
+
+        public EmpleadoTiempoCompleto(int id, string nombre, double salarioFijo)
+            : base(id, nombre)
+        {
+            this.salarioFijo = salarioFijo;
+        }
+
+        public override double CalcularSalario()
+        {
+            return salarioFijo;
+        }
+
+        public override void MostrarInformacion()
+        {
+            base.MostrarInformacion();
+            Console.WriteLine("Tipo: Tiempo Completo");
+            Console.WriteLine("Salario: " + CalcularSalario());
+            Console.WriteLine("---------------------");
+        }
+    }
 }
 
-class Program   
+    class Program   
 {
     static void Main(string[] args)
     {
